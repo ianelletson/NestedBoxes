@@ -3,7 +3,7 @@ package edu.gustavus.ielletso;
 import java.util.Scanner;
 import java.util.Vector;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

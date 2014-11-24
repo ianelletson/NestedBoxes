@@ -2,48 +2,44 @@ package edu.gustavus.ielletso;
 
 import java.util.*;
 
-/**
- * Created by ielletso on 11/22/14.
- */
-public class DAG {
-    private List<Node> nodes;
-    private Map<Node, Integer> distance;
+class DAG {
+    private final List<Node> nodes;
+    private final Map<Node, Integer> distance;
 
     public DAG() {
-        this.nodes = new ArrayList<Node>();
-        this.distance = new HashMap<Node, Integer>();
+        nodes = new ArrayList<Node>();
+        distance = new HashMap<Node, Integer>();
     }
 
     public void addNode(int x, int y, int z) {
         Node newNode = new Node(x, y, z);
-        for (Node node : this.nodes) {
+        for (Node node : nodes) {
             node.addEdge(newNode);
             newNode.addEdge(node);
         }
-        this.nodes.add(newNode);
-        this.distance.put(newNode, -1);
+        nodes.add(newNode);
+        distance.put(newNode, -1);
     }
 
     public int longestPath() {
-        for (Node node : this.nodes)
-            if (this.distance.get(node) == -1)
+        for (Node node : nodes)
+            if (distance.get(node) == -1)
                 dfs(node);
-
         int length = 0;
-        for (Integer i : this.distance.values()) {
+        for (Integer i : distance.values()) {
             if (i > length)
                 length = i;
         }
-        return length + 1; // this '+1' accounts for not counting a node in its own list of adjacent nodes
+        return length + 1; /* this '+1' accounts for not counting a
+                              node in its own list of adjacent nodes */
     }
 
     private void dfs(Node v) {
-        this.distance.put(v, 0);
-
+        distance.put(v, 0);
         for (Node w : v.getAdjacentToNodes()) {
-            if (this.distance.get(w) == -1) this.dfs(w);
-            int max = Math.max(this.distance.get(v), (1 + this.distance.get(w)));
-            this.distance.put(v, max);
+            if (distance.get(w) == -1) dfs(w);
+            int max = Math.max(distance.get(v), (1 + distance.get(w)));
+            distance.put(v, max);
         }
     }
 
@@ -58,8 +54,10 @@ public class DAG {
     }
 
     private class Node {
-        private int x, y, z;
-        private List<Node> adjacentToNodes;
+        private final int x;
+        private final int y;
+        private final int z;
+        private final List<Node> adjacentToNodes;
 
         private List<Node> getAdjacentToNodes() {
             return adjacentToNodes;
@@ -73,18 +71,18 @@ public class DAG {
         }
 
         private void addEdge(Node w) {
-            if (this.fitsInto(w))
+            if (fitsInto(w))
                 adjacentToNodes.add(w);
         }
 
         private boolean fitsInto(Node w) {
-            if ((this.x < w.x) && (this.y < w.y) && (this.z < w.z)) return true;
-            if ((this.x < w.y) && (this.y < w.z) && (this.z < w.x)) return true;
-            return (this.x < w.z) && (this.y < w.x) && (this.z < w.y);
+            if ((x < w.x) && (y < w.y) && (z < w.z)) return true;
+            if ((x < w.y) && (y < w.z) && (z < w.x)) return true;
+            return (x < w.z) && (y < w.x) && (z < w.y);
         }
 
         @Override public String toString() {
-            return String.format("(%d %d %d) ", this.x, this.y, this.z);
+            return String.format("(%d %d %d) ", x, y, z);
         }
     }
 }

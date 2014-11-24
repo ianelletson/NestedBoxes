@@ -1,44 +1,18 @@
-	    DAG graph = new DAG();
-        graph.addNode(145, 472, 812);
-        graph.addNode(827, 133, 549);
-        graph.addNode(381, 371, 900);
-        graph.addNode(271, 389, 128);
-        graph.addNode(718, 217, 491);
-        System.out.print("Graph 1: \n");
-        System.out.print(graph);
-        System.out.print(graph.longestPath() + "\n");
-        DAG graph2 = new DAG();
-        graph2.addNode(432, 123, 139);
-        graph2.addNode(942, 844, 783);
-        graph2.addNode(481, 487, 577);
-        graph2.addNode(677, 581, 701);
-        System.out.print("Graph 2: \n");
-        System.out.print(graph2);
-        System.out.print(graph2.longestPath() + "\n");
-        DAG graph3 = new DAG();
-        graph3.addNode(1, 2, 3);
-        graph3.addNode(2, 3, 4);
-        graph3.addNode(3, 4, 5);
-        graph3.addNode(4, 5, 6);
-        System.out.print("Graph 3: \n");
-        System.out.print(graph3);
-        System.out.print(graph3.longestPath() + "\n");
-        DAG graph4 = new DAG();
-        graph4.addNode(1, 2, 3);
-        graph4.addNode(9, 10, 15);
-        graph4.addNode(5, 6, 7);
-        System.out.print("Graph 4: \n");
-        System.out.print(graph4);
-        System.out.print(graph4.longestPath() + "\n");
-        DAG graph5 = new DAG();
-        graph5.addNode(1, 2, 3);
-        graph5.addNode(2, 3, 4);
-        System.out.print("Graph 5: \n");
-        System.out.print(graph5);
-        System.out.print(graph5.longestPath() + "\n");
-        DAG graph6 = new DAG();
-        graph6.addNode(1, 2, 3);
-        graph6.addNode(2, 2, 2);
-        System.out.print("Graph 6: \n");
-        System.out.print(graph6);
-        System.out.print(graph6.longestPath() + "\n");
+---- Standard Input ----
+5
+145 472 812
+827 133 549
+371 371 900
+271 389 128
+718 217 491
+4
+432 123 139
+942 844 783
+481 487 577
+677 581 701
+-1
+
+---- Expected Output ----
+Case 1: 2 boxes
+
+Case 2: 4 boxes
