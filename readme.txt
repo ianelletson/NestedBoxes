@@ -7,7 +7,8 @@ Each person contributed equally to this project
 - The longest path algorithm adds 1 to length because the algorithm starts on
   the second node, but needs to account for paths of length one.
 - The program reads from standard input and writes to standard output
-- The program should be run from the terminal as:
+- The program should be run from the terminal as (look in the directory
+  "TEST HERE" for the jar and test files):
   `java -jar NestBoxes.jar < $TESTFILE` where `$TESTFILE` is the name of the
   file you wish to test. Files test1 - test4 are included. They give correct
   output.
