@@ -3,7 +3,7 @@ package edu.gustavus.ielletso;
 import java.util.Scanner;
 import java.util.Vector;
 
-class Main {
+public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -29,7 +29,8 @@ class Main {
                 }
                 graph.addNode(xyz[0], xyz[1], xyz[2]);
             }
-            System.out.printf("Case %d: %d boxes\n\n", caseNum++, graph.longestPath());
+            String output = graph.longestPath() == 1 ? "box\n\n" : "boxes\n\n";
+            System.out.printf("Case %d: %d " + output, caseNum++, graph.longestPath());
         }
     }
 }
